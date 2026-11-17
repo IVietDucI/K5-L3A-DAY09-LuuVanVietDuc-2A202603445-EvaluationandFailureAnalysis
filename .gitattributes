@@ -1,5 +1,7 @@
 # Keep fixtures byte-identical on every OS (Windows autocrlf would rewrite them).
 * text=auto eol=lf
+/src/data/eval/eval_set_v1.jsonl -text
+/src/data/eval/labels_v1.json -text
 *.sqlite binary
 *.png binary
 *.pdf binary

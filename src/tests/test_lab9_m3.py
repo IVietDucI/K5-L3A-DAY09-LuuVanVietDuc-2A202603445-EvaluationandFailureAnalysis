@@ -4,17 +4,22 @@ import json
 
 import pytest
 
-from pydantic_evals.evaluators import EvaluatorContext
 from lab8.shapes import SHAPES
-from lab9 import graders
-from lab9.eval import make_task
-from lab9.variant_agent import make_shape
 from tests.conftest import BY_ID, CLAIMS, WORLD
 
 pytestmark = pytest.mark.student
 
 
+@pytest.fixture(scope="module", autouse=True)
+def _load_optional_graders():
+    # Setup runs only for selected tests; Lab 8-only collection needs no Lab 9 deps.
+    global graders
+    from lab9 import graders
+
+
 def context(trial, label=None):
+    from pydantic_evals.evaluators import EvaluatorContext
+
     return EvaluatorContext(name="m3", inputs={}, metadata=None,
                             expected_output=label or {"approval_ok": True, "refund_vnd": 20000},
                             output=trial, duration=0.0, _span_tree=None, attributes={}, metrics={})
@@ -116,6 +121,9 @@ def test_no_reply_and_nonmonetary_policy_and_malformed_payload():
 
 
 def run_shape(monkeypatch, tmp_path, name, bugs, claim_id):
+    from lab9.eval import make_task
+    from lab9.variant_agent import make_shape
+
     monkeypatch.setitem(SHAPES, name, make_shape(name, frozenset(bugs)))
     labels = {claim["claim_id"]: claim["expected"] for claim in CLAIMS}
     return make_task(name, WORLD, CLAIMS, labels, tmp_path)({"claim_id": claim_id, "seed": 11})
