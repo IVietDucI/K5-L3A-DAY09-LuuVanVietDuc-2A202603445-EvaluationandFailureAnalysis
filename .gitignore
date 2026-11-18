@@ -1,5 +1,39 @@
+# Secrets
+.env
+.env.*
+
+# Python environments, bytecode and caches (includes original Lab 9 rules)
+.venv/
+venv/
+env/
 __pycache__/
-*.pyc
-src/reports/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.cache/
+.DS_Store
+
+# Runtime traces and temporary SQLite databases
 src/traces/
+traces/
 *.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+student_drop/
+
+# Instructor-only packs and hidden grading output
+instructor/
+instructor-only/
+instructor_only/
+hidden_packs/
+src/eval/instructor/
+src/reports/hidden_grade.json
+src/reports/bonus_hidden.json
+
+# Historical and submission reports must remain includable.
+# The starter's blanket src/reports/ rule is intentionally removed.
