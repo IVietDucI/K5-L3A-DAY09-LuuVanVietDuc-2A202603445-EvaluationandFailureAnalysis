@@ -1,10 +1,14 @@
 # PRD v1.1 — measurable offline refund-agent acceptance
 
+**Trạng thái hiện tại, cập nhật 2026-11-18T09:44:30+07:00:** Core đã được công bố tại commit `d480122f0ed3066e3102e47633af5330770e84fb` (thời điểm commit thực tế `2026-11-17T19:30:38+07:00`). [PR #1](https://github.com/IVietDucI/K5-L3A-DAY09-LuuVanVietDuc-2A202603445-EvaluationandFailureAnalysis/pull/1) vẫn mở theo bằng chứng lưu ngày 18/11/2026. [Core CI](https://github.com/IVietDucI/K5-L3A-DAY09-LuuVanVietDuc-2A202603445-EvaluationandFailureAnalysis/actions/runs/44083998331) và [sáu job Lab 8](https://github.com/IVietDucI/K5-L3A-DAY09-LuuVanVietDuc-2A202603445-EvaluationandFailureAnalysis/actions/runs/44083998324) đã PASS trên commit đó; trạng thái được xác minh từ bằng chứng đã lưu, không truy vấn GitHub trong lượt rà soát này. M5–M7 mới hoàn tất kiểm tra công khai tại máy cục bộ, chưa công bố; **Advanced CI chờ chạy các bước đánh giá thực tế**. Chưa merge hoặc nộp bài. Hạn được cung cấp: **12:00 ngày 18/11/2026, Asia/Ho_Chi_Minh**.
+
+## Bằng chứng M4 lịch sử — đo cục bộ ngày 17/11/2026
+
 No product behavior is changed from the inherited Lab 8 exercise. This document adds measured success criteria, a local blocking policy and a named owner.
 
 Student and local gate owner: **Luu Van Viet Duc — 2A202603445 — L3A**.
 
-**M4 LOCAL verification completed; GitHub PR and CI: PENDING (not run or observed).** This is uncommitted work on starter/d09. The base commit is d1b9471540727d693c9eb392667b9f0d8a998bf5; that commit alone does not identify the completed implementation. The content hashes below identify the relevant working-tree code/spec. No baseline has been committed on main, and no protected-branch configuration or approval is asserted.
+**Historical M4 observation, 2026-11-17 before publication:** local checks passed while the implementation was uncommitted and remote CI had not yet run. Its base was d1b9471540727d693c9eb392667b9f0d8a998bf5. The hashes below identify that historical measured code/spec snapshot, not the current working tree. The baseline was generated locally; current publication/CI status is stated above. No protected-branch configuration or approval is asserted.
 
 Scope: this offline LogiX-VN refund exercise only. No real customers, real money, external model calls, or production release are involved. The original preserved swarm is the local baseline shape; fixed is a control, never the baseline.
 
@@ -135,11 +139,11 @@ See [trace case](trace_case.md), [M1 evidence](lab9_m1_notes.md), and [M3 notes]
 
 MockLLM, 14 public items and five seeds limit generalization; paired intervals can be wide. Public CSV replay and public fixtures are not production or independent held-out evidence. Official-anchor and hidden results remain unverified. reply_matches_ledger checks observable supported completed-refund statements; no reply/no monetary statement can pass with limited coverage and does not prove reply existence, completeness or truth under arbitrary wording. Money/approval checks are code graders, not tone judgments.
 
-The Core gate is unchanged. M5 slice and M7 integrity checks remain unfinished stubs; report completeness was audited independently for these local artifacts. M6 pass@k/pass^k are unfinished. No M5–M7 completion, waiver, user/mentor signature, branch protection, or GitHub success is claimed.
+At the historical M4 snapshot, the Core gate was unchanged and M5 slice/M7 integrity checks were unfinished stubs; report completeness was audited independently for these local artifacts. M6 pass@k/pass^k were unfinished at that snapshot; they are now implemented in the local v2 work. No M5–M7 completion, waiver, user/mentor signature, branch protection, or GitHub success is claimed.
 
 Policy: an explicit blocked metric stops local acceptance; owner Luu Van Viet Duc investigates rather than weakening thresholds. There is no approved waiver. Future eval-set changes require a new eval-set version and regenerated baseline; metric-policy changes require a spec-version bump with rationale. This spec bump from 1.0 to 1.1 records the two completed M3 additions; it changes no metric semantics or settings. A future pilot or production policy requires separate authorization and evidence.
 
-## Uncommitted implementation SHA-256
+## Historical M4 implementation SHA-256 — 2026-11-17, not current hashes
 
 | Path | SHA-256 |
 |---|---|
@@ -167,4 +171,4 @@ Policy: an explicit blocked metric stops local acceptance; owner Luu Van Viet Du
 | FM-07 | ApprovalBypass unexpected ledger rows |
 | FM-08 | ReplyMatchesLedger, with observable-language coverage limits |
 
-Approval status: PENDING learner review; no signatures supplied. GitHub PR/CI: PENDING.
+No approval signatures are supplied. Core publication/CI is verified in the current-status introduction; Advanced publication/CI remains pending.

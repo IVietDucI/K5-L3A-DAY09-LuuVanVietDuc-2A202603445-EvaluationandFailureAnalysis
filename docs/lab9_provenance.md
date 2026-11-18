@@ -1,5 +1,7 @@
 # Lab 9 provenance (M0)
 
+> Dated M0 record: 2026-11-17. Original environment, branch/remote descriptions, paths and Lab 8 results below describe that historical stage. Current canonical repository: `D:\VINAI20K\C_17112026\K5-L3A-DAY09-LuuVanVietDuc-2A202603445-EvaluationandFailureAnalysis`. See [migration record](lab9_migration.md), [current eval card](eval_card.md), and [individual report](lab9_individual_report.md). Core publication is at d480122f0ed3066e3102e47633af5330770e84fb; local Advanced changes remain unpublished.
+
 Individual Day 9 work (Evaluation & Failure Analysis) built on the frozen team Lab 8 submission.
 
 | Field | Value |

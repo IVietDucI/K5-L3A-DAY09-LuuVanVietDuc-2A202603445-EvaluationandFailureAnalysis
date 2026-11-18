@@ -110,13 +110,20 @@ def paired_bootstrap(a: Sequence[float], b: Sequence[float], *, n_resamples: int
 def pass_at_k(n: int, c: int, k: int) -> float:
     """Probability that AT LEAST ONE of k trials drawn from n (c of them passing) passes.
     Unbiased estimator (Chen et al. 2021): 1 - C(n-c, k) / C(n, k). Raise ValueError if k > n."""
-    # TODO M6
-    raise NotImplementedError
+    from math import comb
+    _validate_pass_k(n, c, k)
+    return 1.0 - (comb(n - c, k) / comb(n, k) if n - c >= k else 0.0)
 
 
 def pass_hat_k(n: int, c: int, k: int) -> float:
     """pass^k (tau-bench, Yao et al. 2024): probability that ALL k trials drawn from n pass.
     Unbiased estimator: C(c, k) / C(n, k). Raise ValueError if k > n.
     pass^k <= pass@1 <= pass@k; a reliable agent keeps pass^k close to pass@1."""
-    # TODO M6
-    raise NotImplementedError
+    from math import comb
+    _validate_pass_k(n, c, k)
+    return comb(c, k) / comb(n, k) if c >= k else 0.0
+
+
+def _validate_pass_k(n: int, c: int, k: int) -> None:
+    if any(type(v) is not int for v in (n, c, k)) or n < 1 or not 0 <= c <= n or not 1 <= k <= n:
+        raise ValueError("n,c,k must be integers (not bool) with n>=1, 0<=c<=n, 1<=k<=n")
